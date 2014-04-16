@@ -10,21 +10,33 @@ html(lang='en')
 	body
 		h1 Memory Game!
 
-		//- .pure-g
-		//- 	.pure-u-3-4
 		div#gameGrid
 			table
 				thead
 					tr
 						th
 				tbody
-				- for(var i = 0; i < 3; ++i)
-					tr
-						- for(var j = 0; j < 7; ++j)
-							td
-								img(src='../media/images/panels/hidden.png')
+					- for(var i = 0; i < 3; ++i)
+						tr
+							- for(var j = 0; j < 7; ++j)
+								td.panel(id='panel'+(7*i+j))
+									.container
+										.flipper
+											img.back(src='media/images/panels/hidden.png')
+											img.front(src='media/images/panels/heisenberg.png')
 		div#gameInfo
 			button#start Start
+			#clock Hello
+
+			
+			button#animate Aminate
+
+			//- .container
+			//- 	.flipper
+			//- 		.front A
+			//- 		.back B
+
+
 
 		//- #gameBoard(style='width:100%; background-color: black;')
 		//- 	- for(var i = 0; i < 4; ++i)
