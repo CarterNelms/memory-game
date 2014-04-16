@@ -1,6 +1,6 @@
-# client-template
+# Memory Game
 
-Serves as a template for client JavaScript applications.
+Player has to find all of the matches before time runs out
 
 It uses:
 * Jade

@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@panelPaddingSize: 4px;
+
 body{
   background-image: url('../media/bg.svg');
   background-size: cover;
@@ -51,4 +53,35 @@ html, button, input, select, textarea,
 
 .button-xlarge {
   font-size: 150%;
+}
+
+#gameGrid, #gameInfo{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#gameGrid{
+	border-collapse: collapse;
+
+	td{
+		padding: 0px;
+		margin: 0px;
+		img{
+			height: 160px;
+			width: 120px;
+			padding: @panelPaddingSize;
+			border-radius: 10px;
+		}
+	}
+
+	.pure-g{
+		padding: 0px;
+		margin: 0px;
+	}
+}
+
+#gameGrid td img:hover{
+		padding: 0;
+		border: @panelPaddingSize solid blue;
+		cursor: pointer;
 }
