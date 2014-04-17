@@ -54,8 +54,8 @@
 		{
 			flipUp($(this));
 			var matchedCardCount = pictures.length - 2*matchesLeft;
-			var cardsUpAll = $('.flipper.faceUp');
-			var cardsUp = cardsUpAll.length - matchedCardCount;
+			var cardsUpAll = $('.flipper.faceUp').length;
+			var cardsUp = cardsUpAll - matchedCardCount;
 			switch(cardsUp)
 			{
 				case 0:
@@ -64,13 +64,10 @@
 					chosenCards[0] = $(this).attr('id');
 					break;
 				case 2:
-					debugger;
 					playerMayTurnCard = false;
 					chosenCards[1] = $(this).attr('id');
-					debugger;
 					var src1 = $('#'+chosenCards[0]+' .front').attr('src');
 					var src2 = $('#'+chosenCards[1]+' .front').attr('src');
-					debugger;
 					if(src1 === src2)
 					{
 						setTimeout(matchFound, 1000);
@@ -90,7 +87,6 @@
 
 	function matchFound()
 	{
-		debugger;
 		if(--matchesLeft <= 0)
 		{
 			gameOver(true);
@@ -103,11 +99,12 @@
 
 	function badMoveRecover()
 	{
-		chosenCards.forEach(function(id)
-		{
-			debugger;
-			$('#'+id).removeClass('faceUp');
-		});
+		chosenCards.forEach(
+			function(id)
+			{
+				$('#'+id).removeClass('faceUp');
+			}
+		);
 		prepForNextMove();
 	}
 
@@ -194,6 +191,7 @@
 		$gameGrid.off('click');
 		$('.flipper').removeClass('faceUp');
 		clearInterval(timer);
+		$startButton.click(start);
 	}
 
 	// function animate()
