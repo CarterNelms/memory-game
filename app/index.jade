@@ -8,51 +8,57 @@ html(lang='en')
 		link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.5.0-rc-1/grids-responsive-min.css')
 		link(rel='stylesheet', href='css/app.css')
 	body
-		h1 Memory Game!
+		#page-wrap
+			h1 me;ry Gme
 
-		div#gameGrid
-			table
-				thead
-					tr
-						th
-				tbody
-					- for(var i = 0; i < 3; ++i)
+			div#gameGrid
+				table
+					thead
 						tr
-							- for(var j = 0; j < 7; ++j)
-								td.panel(id='panel'+(7*i+j))
-									.container
-										.flipper
-											img.back(src='media/images/panels/hidden.png')
-											img.front(src='media/images/panels/heisenberg.png')
-		div#gameInfo
-			button#start Start
-			#clock Hello
+							th
+					tbody
+						- var rows = 3;
+						- var cols = 7;
+						- for(var i = 0; i < rows; ++i)
+							tr
+								- for(var j = 0; j < cols; ++j)
+									td.panel
+										- if(!(i === rows-1 && j ===cols-1))
+											.container
+												.flipper(id='panel'+(cols*i+j))
+													img.back(src='media/images/panels/hidden2.png')
+													img.front(src='media/images/panels/heisenberg.png')
+										- else
+											img(src='media/images/BrBa.png')
+			div#gameInfo
+				button#start Start
+				#clock Hello
 
-			
-			button#animate Aminate
+				
+				button#animate Aminate
 
-			//- .container
-			//- 	.flipper
-			//- 		.front A
-			//- 		.back B
+				//- .container
+				//- 	.flipper
+				//- 		.front A
+				//- 		.back B
 
 
 
-		//- #gameBoard(style='width:100%; background-color: black;')
-		//- 	- for(var i = 0; i < 4; ++i)
-		//- 		.pure-g
-		//- 			- for(var j = 0; j < 5; ++j)
-		//- 				.pure-u-1-5
+			//- #gameBoard(style='width:100%; background-color: black;')
+			//- 	- for(var i = 0; i < 4; ++i)
+			//- 		.pure-g
+			//- 			- for(var j = 0; j < 5; ++j)
+			//- 				.pure-u-1-5
 
-		//- .pure-g
-		//- 	.pure-u-1-2
-		//- 	.pure-u-1-2
-		//- 		a.pure-button(href='http://qrohlf.com/trianglify/') Background SVG Image
+			//- .pure-g
+			//- 	.pure-u-1-2
+			//- 	.pure-u-1-2
+			//- 		a.pure-button(href='http://qrohlf.com/trianglify/') Background SVG Image
 
-		//- .pure-g
-		//- 	.pure-u-1-3: a.pure-button.button-success.button-xsmall(href='http://stage.purecss.io/') Documentation
-		//- 	.pure-u-1-3: a.pure-button.button-error.button-xlarge(href='http://stage.purecss.io/grids/') Grids
-		//- 	.pure-u-1-3: a.pure-button.button-secondary(href='http://stage.purecss.io/grids/#using-grids-with-custom-fonts') Changing Fonts
+			//- .pure-g
+			//- 	.pure-u-1-3: a.pure-button.button-success.button-xsmall(href='http://stage.purecss.io/') Documentation
+			//- 	.pure-u-1-3: a.pure-button.button-error.button-xlarge(href='http://stage.purecss.io/grids/') Grids
+			//- 	.pure-u-1-3: a.pure-button.button-secondary(href='http://stage.purecss.io/grids/#using-grids-with-custom-fonts') Changing Fonts
 			
 
 		script(src='js/vendor/jquery-2.1.0.js')

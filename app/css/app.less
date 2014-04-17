@@ -2,8 +2,14 @@
 
 @panelPaddingSize: 4px;
 
+@font-face{
+font-family: BrBaType;
+font-weight: bold;
+src: url("../media/fonts/Heart Breaking Bad.otf") format("opentype");
+}
+
 body{
-  background-image: url('../media/bg.svg');
+  background-image: url('../media/images/periodic-table.png');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -55,6 +61,24 @@ html, button, input, select, textarea,
   font-size: 150%;
 }
 
+h1{
+	font-family: BrBaType;
+	font-size: 108px;
+	//padding: 0px;
+	margin: 0px;
+	color: white;
+}
+
+#page-wrap {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#page-wrap > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #gameGrid, #gameInfo{
 	display: inline-block;
 	vertical-align: top;
@@ -62,9 +86,14 @@ html, button, input, select, textarea,
 
 #gameGrid{
 	border-collapse: collapse;
+	background-color: white;
+	padding: @panelPaddingSize;
+	padding-bottom: 2*@panelPaddingSize;
+	padding-right: 2*@panelPaddingSize;	
+	border-radius: 15px;
 
 	td{
-		padding: 0px;
+		padding: @panelPaddingSize;
 		margin: 0px;
 		img{
 			height: 160px;
@@ -77,12 +106,6 @@ html, button, input, select, textarea,
 		padding: 0px;
 		margin: 0px;
 	}
-}
-
-#gameGrid .back:not(.rotate):hover{
-		padding: 0;
-		border: @panelPaddingSize solid green;
-		cursor: pointer;
 }
 
 .container{
@@ -110,19 +133,17 @@ button{
 	width: 100%;
 	height: 100%;
 	color: white;
-	font-size: 36px;
-	text-align: center;
 }
 
 .flipper{
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
+	// -webkit-transform-style: preserve-3d;
+	// -moz-transform-style: preserve-3d;
+	// -ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 	-webkit-transition-duration: 2s;
 	-moz-transition-duration: 2s;
 	-ms-transition-duration: 2s;
 	position: relative;
-	background-color: red;
 }
 
 .front, .back{
@@ -134,8 +155,19 @@ button{
 	-ms-backface-visibility: hidden;
 }
 
+.back:not(.rotate):hover {
+	margin: @panelPaddingSize;
+	cursor: pointer;
+}
+
 .front{
 	z-index: 10;
+	border: @panelPaddingSize solid black;
+	left: -2*@panelPaddingSize;
+}
+
+.back{
+	border: @panelPaddingSize solid green;
 }
 
 .front, .faceUp{
