@@ -1,0 +1,156 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+  font-family: BrBaType;
+  font-weight: bold;
+  src: url("../media/fonts/Heart Breaking Bad.otf") format("opentype");
+}
+body {
+  background-image: url('../media/images/periodic-table.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #005500;
+}
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class*="pure-u"] {
+  /* Set your content font stack here: */
+  font-family: 'Open Sans', sans-serif;
+}
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+  background: #52e365;
+}
+.button-error {
+  background: #d2734e;
+}
+.button-warning {
+  background: #df7514;
+}
+.button-secondary {
+  background: rgba(108, 67, 223, 0.55);
+}
+.button-xsmall {
+  font-size: 50%;
+}
+.button-small {
+  font-size: 85%;
+}
+.button-large {
+  font-size: 110%;
+}
+.button-xlarge {
+  font-size: 150%;
+}
+h1 {
+  font-family: BrBaType;
+  font-size: 108px;
+  margin: 0px;
+  color: white;
+}
+#page-wrap {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#page-wrap > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+#gameGrid,
+#gameInfo {
+  display: inline-block;
+  vertical-align: top;
+}
+#gameGrid {
+  border-collapse: collapse;
+  background-color: rgba(215, 255, 215, 0.85);
+  border: 3.6px solid #228822;
+  padding-bottom: 7.2px;
+  padding-right: 7.2px;
+  border-radius: 15px;
+}
+#gameGrid td {
+  padding: 3.6px;
+  margin: 0px;
+}
+#gameGrid td img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+#gameGrid .pure-g {
+  padding: 0px;
+  margin: 0px;
+}
+.container {
+  width: 108px;
+  height: 144px;
+  padding: 3.6px;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+}
+#clock {
+  width: 100px;
+  height: 55px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+.flipper,
+.pseudoFlipper {
+  width: 100%;
+  height: 100%;
+}
+.flipper {
+  transform-style: preserve-3d;
+  -webkit-transition-duration: 1.5s;
+  -moz-transition-duration: 1.5s;
+  -ms-transition-duration: 1.5s;
+  position: relative;
+}
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+.back:not(.rotate):hover {
+  margin: 3.6px;
+  cursor: pointer;
+}
+.front {
+  z-index: 10;
+  border: 3.6px solid #000000;
+  left: -7.2px;
+}
+.back {
+  border: 3.6px solid #005500;
+}
+.front,
+.faceUp {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+}
+::selection {
+  background: rgba(0, 0, 0, 0);
+  /* Safari */
+}
+::-moz-selection {
+  background: rgba(0, 0, 0, 0);
+  /* Firefox */
+}
