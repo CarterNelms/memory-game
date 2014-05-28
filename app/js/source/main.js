@@ -65,11 +65,11 @@
 			case 0:
 				break;
 			case 1:
-				chosenCards[0] = $(this).parents('td.panel').attr('id');
+				chosenCards[0] = $(this).attr('id');
 				break;
 			case 2:
 				$gameGrid.off('click');
-				chosenCards[1] = $(this).parents('td.panel').attr('id');
+				chosenCards[1] = $(this).attr('id');
 				var src1 = $('#'+chosenCards[0]).find('.front').attr('src');
 				var src2 = $('#'+chosenCards[1]).find('.front').attr('src');
 				if(src1 === src2)
@@ -105,7 +105,7 @@
 		chosenCards.forEach(
 			function(id)
 			{
-				$('#'+id).find('.flipper').removeClass('faceUp');
+				$('#'+id).removeClass('faceUp');
 			}
 		);
 		prepForNextMove();
