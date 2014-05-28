@@ -9,11 +9,13 @@
 	var timer;
 	var pictures;
 	var matchesLeft;
-	var playerMayTurnCard;
 	var chosenCards = [];
 	var $startButton;
 	var $clock;
 	var $gameGrid;
+	var audio = new Audio('media/sounds/music/Breaking Bad Full Intro.mp3');
+	//var quote = new Audio('media/sounds/magnets.mp3');
+	//var videoDiv = $('#videoDiv');
 	var isGameInSession;
 
 	function initialize()
@@ -29,6 +31,11 @@
 	function start()
 	{
 		isGameInSession = true;
+		queueSounds([audio]);//queueSounds([quote, audio]);
+		//audio.play();
+		// var vid = $('<iframe>');
+		// vid.attr()
+		// videoDiv.append('')
 		// Stop listening for start
 		$startButton.off('click');
 		// Reset clock
@@ -40,48 +47,44 @@
 		Number of matches = 1/2 number of pictures
 		*/
 		matchesLeft = pictures.length/2;
-		playerMayTurnCard = true;
 
 		// Begin the countdown
 		timer = setInterval(updateClock, 1000);
 		// Listen for clicks on the cards
-		$gameGrid.on('click', '.flipper', makeMove);
+		prepForNextMove();
 	}
 
 	function makeMove()
 	{
-		if(playerMayTurnCard)
+		$(this).addClass('faceUp');
+		var matchedCardCount = pictures.length - 2*matchesLeft;
+		var cardsUpAll = $('.flipper.faceUp').length;
+		var cardsUp = cardsUpAll - matchedCardCount;
+		switch(cardsUp)
 		{
-			flipUp($(this));
-			var matchedCardCount = pictures.length - 2*matchesLeft;
-			var cardsUpAll = $('.flipper.faceUp').length;
-			var cardsUp = cardsUpAll - matchedCardCount;
-			switch(cardsUp)
-			{
-				case 0:
-					break;
-				case 1:
-					chosenCards[0] = $(this).attr('id');
-					break;
-				case 2:
-					playerMayTurnCard = false;
-					chosenCards[1] = $(this).attr('id');
-					var src1 = $('#'+chosenCards[0]+' .front').attr('src');
-					var src2 = $('#'+chosenCards[1]+' .front').attr('src');
-					if(src1 === src2)
-					{
-						setTimeout(matchFound, 1000);
-					}
-					else
-					{
-						setTimeout(badMoveRecover, 2000);
-					}
-					break;
-				default:
-					/* Two cards should never be up at once if a
-					move is being made. End the game.
-					*/
-			}
+			case 0:
+				break;
+			case 1:
+				chosenCards[0] = $(this).parents('td.panel').attr('id');
+				break;
+			case 2:
+				$gameGrid.off('click');
+				chosenCards[1] = $(this).parents('td.panel').attr('id');
+				var src1 = $('#'+chosenCards[0]).find('.front').attr('src');
+				var src2 = $('#'+chosenCards[1]).find('.front').attr('src');
+				if(src1 === src2)
+				{
+					setTimeout(matchFound, 1000);
+				}
+				else
+				{
+					setTimeout(badMoveRecover, 2000);
+				}
+				break;
+			default:
+				/* Two cards should never be up at once if a
+				move is being made. End the game.
+				*/
 		}
 	}
 
@@ -102,7 +105,7 @@
 		chosenCards.forEach(
 			function(id)
 			{
-				$('#'+id).removeClass('faceUp');
+				$('#'+id).find('.flipper').removeClass('faceUp');
 			}
 		);
 		prepForNextMove();
@@ -111,15 +114,7 @@
 	function prepForNextMove()
 	{
 		chosenCards = [];
-		playerMayTurnCard = true;
-	}
-
-	function flipUp($card)
-	{
-		if(playerMayTurnCard)
-		{
-			$card.addClass('faceUp');
-		}
+		$gameGrid.on('click', '.flipper', makeMove);
 	}
 
 	function initializePictures()
@@ -180,6 +175,7 @@
 		{
 			if(isWon)
 			{
+
 				alert('You win!');
 			}
 			else
@@ -194,9 +190,33 @@
 		$startButton.click(start);
 	}
 
-	// function animate()
-	// {
-	// 	$('.flipper').toggleClass('faceUp');
-	// }
+	//This plays a file, and call a callback once it completed (if a callback is set)
+
+	function play(audio, callback)
+	{
+		audio.play();
+		if(callback)
+		{
+		    audio.onended = callback;
+		}
+	}
+
+	function queueSounds(sounds)
+	{
+		var index = 0;
+		recursivePlay();   
+
+		function recursivePlay()
+		{
+			if(index === sounds.length-1)
+			{
+				play(sounds[index],null);
+			}
+			else
+			{
+				play(sounds[index],function(){index++; recursivePlay();});
+			}
+		}
+	}
 
 })();
