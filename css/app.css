@@ -8,6 +8,16 @@ body {
   background-image: url('../media/images/periodic-table.png');
   background-size: cover;
   background-attachment: fixed;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  background-color: #005500;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
 }
 html,
 button,
@@ -72,6 +82,13 @@ h1 {
 }
 #gameGrid {
   border-collapse: collapse;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   background-color: white;
   padding: 4px;
   padding-bottom: 8px;
@@ -85,6 +102,27 @@ h1 {
 #gameGrid td img {
   height: 160px;
   width: 120px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+  background-color: rgba(215, 255, 215, 0.85);
+  border: 3.6px solid #228822;
+  padding-bottom: 7.2px;
+  padding-right: 7.2px;
+  border-radius: 15px;
+}
+#gameGrid td {
+  padding: 3.6px;
+  margin: 0px;
+}
+#gameGrid td img {
+  width: 100%;
+  height: 100%;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   border-radius: 10px;
 }
 #gameGrid .pure-g {
@@ -92,9 +130,27 @@ h1 {
   margin: 0px;
 }
 .container {
+<<<<<<< HEAD
   width: 120px;
   height: 160px;
   padding: 4px;
+=======
+<<<<<<< HEAD
+  width: 120px;
+  height: 160px;
+  padding: 4px;
+=======
+<<<<<<< HEAD
+  width: 120px;
+  height: 160px;
+  padding: 4px;
+=======
+  width: 108px;
+  height: 144px;
+  padding: 3.6px;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
   -ms-perspective: 1000;
@@ -107,6 +163,13 @@ h1 {
   font-weight: bold;
 }
 .flipper,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
 .front,
 .back {
   width: 100%;
@@ -118,6 +181,23 @@ h1 {
   -webkit-transition-duration: 2s;
   -moz-transition-duration: 2s;
   -ms-transition-duration: 2s;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+.pseudoFlipper {
+  width: 100%;
+  height: 100%;
+}
+.flipper {
+  transform-style: preserve-3d;
+  -webkit-transition-duration: 1.5s;
+  -moz-transition-duration: 1.5s;
+  -ms-transition-duration: 1.5s;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   position: relative;
 }
 .front,
@@ -130,16 +210,48 @@ h1 {
   -ms-backface-visibility: hidden;
 }
 .back:not(.rotate):hover {
+<<<<<<< HEAD
   margin: 4px;
+=======
+<<<<<<< HEAD
+  margin: 4px;
+=======
+<<<<<<< HEAD
+  margin: 4px;
+=======
+  margin: 3.6px;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   cursor: pointer;
 }
 .front {
   z-index: 10;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
   border: 4px solid #000000;
   left: -8px;
 }
 .back {
   border: 4px solid #008000;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+  border: 3.6px solid #000000;
+  left: -7.2px;
+}
+.back {
+  border: 3.6px solid #005500;
+>>>>>>> 010e99c29237afe908de21dd2b9ffae0dcb4e8e9
+>>>>>>> 4d39a4b2babb78d3d43923493694fa131f3bc39a
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
 }
 .front,
 .faceUp {

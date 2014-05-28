@@ -65,11 +65,19 @@
 			case 0:
 				break;
 			case 1:
+<<<<<<< HEAD
 				chosenCards[0] = $(this).attr('id');
 				break;
 			case 2:
 				$gameGrid.off('click');
 				chosenCards[1] = $(this).attr('id');
+=======
+				chosenCards[0] = $(this).parents('td.panel').attr('id');
+				break;
+			case 2:
+				$gameGrid.off('click');
+				chosenCards[1] = $(this).parents('td.panel').attr('id');
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
 				var src1 = $('#'+chosenCards[0]).find('.front').attr('src');
 				var src2 = $('#'+chosenCards[1]).find('.front').attr('src');
 				if(src1 === src2)
@@ -105,7 +113,11 @@
 		chosenCards.forEach(
 			function(id)
 			{
+<<<<<<< HEAD
 				$('#'+id).removeClass('faceUp');
+=======
+				$('#'+id).find('.flipper').removeClass('faceUp');
+>>>>>>> d4426299ff2f176827f3ab54ae7676120d581c7d
 			}
 		);
 		prepForNextMove();
